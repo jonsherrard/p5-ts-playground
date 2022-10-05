@@ -14,6 +14,8 @@ for (const path in modules) {
 // await all imports to load
 Promise.all(Object.values(modules)).then(() => {
   ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <App sketches={sketchez} />
+    <React.StrictMode>
+      <App sketches={sketchez} />
+    </React.StrictMode>
   );
 });
