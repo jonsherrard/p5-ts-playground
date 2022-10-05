@@ -12,18 +12,18 @@
   background: rgba(255, 255, 255, 0.01);
   min-width: 200px;
   padding: 20px 10px;
-  min-height: 100vh;
 }
 
 .SketchView {
   min-height: 100%;
-  min-width: 100%;
+  min-width: calc(100% - 220px);
 }
 
 .SketchView > div,
 .SketchView > div > canvas {
   min-height: 100%;
-  min-width: 100%;
+  min-width: calc(100% - 220px);
+  display: block;
 }
 
 .SidebarItem {

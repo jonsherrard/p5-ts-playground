@@ -33,11 +33,11 @@ export const setup = (p5: p5Types, options: SetupOptions) => {
   p5.background('white');
   // place 1000 drawShapes on the canvas in random positions with random colors from the array
   p5.blendMode(p5.BLEND);
-  for (let i = 0; i < 10000; i++) {
+  for (let i = 0; i < 5000; i++) {
     const x = p5.random(p5.width);
     const y = p5.random(p5.height);
-    const sides = p5.floor(p5.random(80, 130));
-    const radius = p5.random(90, 180);
+    const sides = p5.floor(p5.random(150, 400));
+    const radius = p5.random(90, 150);
     const color = colors[p5.floor(p5.random(colors.length))];
     drawShape(p5, sides, radius, x, y, color);
   }
