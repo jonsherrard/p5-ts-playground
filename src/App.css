@@ -34,6 +34,15 @@
   border-radius: 5px;
   margin-bottom: 10px;
   line-height: 1;
+  transition: background 0.2s ease;
+}
+
+.SidebarItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.SidebarItem:active {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .SidebarItem[data-aria-selected='true'] {

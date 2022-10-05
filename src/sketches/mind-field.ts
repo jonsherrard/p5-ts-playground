@@ -11,7 +11,7 @@ export const setup = (p5: p5Types, options: SetupOptions) => {
   p5.stroke(247, 200, 217, 5);
   p5.noFill();
   const points = [];
-  for (let i = 0; i < 130; i++) {
+  for (let i = 0; i < 80; i++) {
     points.push([p5.random(options.width), p5.random(options.height)]);
   }
   for (let i = 0; i < points.length; i++) {
