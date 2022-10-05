@@ -2,7 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import './App.css';
 import P5Types from 'p5';
 import { ReactP5Wrapper, Sketch, SketchProps } from 'react-p5-wrapper';
-import useSize from '@react-hook/size';
+import { Routes, Route, NavLink } from 'react-router-dom';
+
+// function that slugifies a string
+function slugify(str: string) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9 -]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-');
+}
 
 export type SetupOptions = {
   height: number;
@@ -20,18 +29,6 @@ const SketchView = ({
 }) => {
   const sketch: Sketch<SketchProps> = (p5: P5Types) => {
     p5.setup = () => sketchModule.setup(p5, { width, height });
-
-    // @ts-expect-error This is a sketch wrappre function, not a p5 thing
-    // p5.updateWithProps = ({
-    //   width,
-    //   height,
-    // }: {
-    //   width: number;
-    //   height: number;
-    // }) => {
-    //   console.log('updateWithProps', width, height);
-    //   // p5.resizeCanvas(width, height);
-    // };
 
     p5.draw = () => sketchModule.draw(p5);
   };
@@ -80,21 +77,39 @@ const App = ({ sketches }: { sketches: any[] }) => {
       <div className="Sidebar">
         {sketches.map((sketchModule: any, index: number) => {
           return (
-            <div
-              onClick={() => {
-                window.location.hash = index.toString();
-              }}
+            <NavLink
+              role="button"
               key={index}
               className="SidebarItem"
-              data-aria-selected={index === sketchIndex}
+              to={`/${slugify(sketchModule.title)}`}
             >
               {sketchModule.title}
-            </div>
+            </NavLink>
           );
         })}
       </div>
       <div className="SketchView">
-        <SketchView sketchModule={sketchModule} width={width} height={height} />
+        <Routes>
+          {sketches.map((sketchModule: any, index: number) => {
+            return (
+              <Route
+                index={index === 0}
+                path={slugify(sketchModule.title)}
+                element={
+                  <SketchView
+                    sketchModule={sketchModule}
+                    width={width}
+                    height={height}
+                  />
+                }
+              />
+            );
+          })}
+          <Route
+            path="*"
+            element={<h1 style={{ padding: 30 }}>Not Found</h1>}
+          />
+        </Routes>
       </div>
     </div>
   );

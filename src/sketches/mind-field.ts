@@ -8,7 +8,7 @@ export const setup = (p5: p5Types, options: SetupOptions) => {
   // draws many curves between random points without overlapping
   p5.noLoop();
   p5.strokeWeight(1);
-  p5.stroke(247, 200, 217, 5);
+  p5.stroke(247, 200, 217, 30);
   p5.noFill();
   const points = [];
   for (let i = 0; i < 80; i++) {
