@@ -41,27 +41,11 @@ export const setup = (p5: p5Types, options: SetupOptions) => {
     const color = colors[p5.floor(p5.random(colors.length))];
     drawShape(p5, sides, radius, x, y, color);
   }
+  p5.noLoop();
 };
 
 export const draw = (p5: p5Types) => {
-  // if mouse pressed
-  // const { mouseX, mouseY } = p5;
-  // // if (p5.mouseIsPressed) {
-  // //   if (mouseX > 0 && mouseY > 0) {
-  // //     // drawshape once every few seconds
-  // //     // drawShape(p5, 500, 10, mouseX, mouseY, currentColor);
-  // //   }
-  // // }
-  // // on mouse click set new color randomly
-  // if (p5.mouseIsPressed) {
-  //   currentColor = p5.random(colors);
-  // }
-  // // using noise an a sign wave path draw shap over a line
-  // const noise = p5.noise(p5.frameCount / 10);
-  // const noiseY = p5.noise(p5.frameCount * 10);
-  // const x = p5.width * noise;
-  // const y = p5.height * noiseY;
-  // drawShape(p5, 1000, 10 * noise, x, y, currentColor);
+  return null;
 };
 
 export const title = 'Watercolor Ghost';

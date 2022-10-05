@@ -17,7 +17,6 @@ let scl = 3;
 let noiseScale = 300;
 let space = [10, 15];
 let thickness = [1, 1.4];
-let maxSegments = 7;
 
 export const setup = (p5: p5Types, options: SetupOptions) => {
   p5.createCanvas(options.width, options.height);
@@ -27,10 +26,6 @@ export const setup = (p5: p5Types, options: SetupOptions) => {
   p5.angleMode(p5.DEGREES);
   p5.strokeCap(p5.PROJECT);
   p5.noFill();
-  p5.noLoop();
-};
-
-export const draw = (p5: p5Types) => {
   const width = p5.width;
   const height = p5.height;
   p5.background('#EBE4D8');
@@ -74,4 +69,9 @@ export const draw = (p5: p5Types) => {
   }
   p5.strokeWeight(50);
   p5.rect(0, 0, width, height);
+  p5.noLoop();
+};
+
+export const draw = (p5: p5Types) => {
+  return 'noop';
 };

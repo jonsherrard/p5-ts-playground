@@ -30,6 +30,7 @@ export const setup = (p5: p5Types, options: SetupOptions) => {
       p5.circle(noiseX - 200, noiseY + 330, 4);
     }
   }
+  p5.noLoop();
 };
 
 export const draw = (p5: p5Types) => {

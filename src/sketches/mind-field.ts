@@ -30,6 +30,7 @@ export const setup = (p5: p5Types, options: SetupOptions) => {
       }
     }
   }
+  p5.noLoop();
 };
 
 export const draw = (p5: p5Types) => {
