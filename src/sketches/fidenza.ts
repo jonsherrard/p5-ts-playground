@@ -15,9 +15,9 @@ function choose<T>(arr: T[]): T {
 
 let scl = 3;
 let noiseScale = 300;
-let space = [20, 30];
-let thickness = [3, 4];
-let maxSegments = 4;
+let space = [10, 15];
+let thickness = [1, 1.4];
+let maxSegments = 7;
 
 export const setup = (p5: p5Types, options: SetupOptions) => {
   p5.createCanvas(options.width, options.height);

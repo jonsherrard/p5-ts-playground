@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from 'react';
-import './App.css';
 import P5Types from 'p5';
+import React, { useEffect } from 'react';
 import { ReactP5Wrapper, Sketch, SketchProps } from 'react-p5-wrapper';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
+import './App.css';
 
 // function that slugifies a string
 function slugify(str: string) {
@@ -108,7 +108,7 @@ const App = ({ sketches }: { sketches: any[] }) => {
           })}
           <Route
             path="*"
-            element={<h1 style={{ padding: 30 }}>Not Found</h1>}
+            element={<h1 style={{ padding: 30 }}>Select an artwork</h1>}
           />
         </Routes>
       </div>
