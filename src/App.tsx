@@ -93,6 +93,7 @@ const App = ({ sketches }: { sketches: any[] }) => {
           {sketches.map((sketchModule: any, index: number) => {
             return (
               <Route
+                key={slugify(sketchModule.title)}
                 index={index === 0}
                 path={slugify(sketchModule.title)}
                 element={
