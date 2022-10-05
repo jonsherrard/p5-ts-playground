@@ -13,16 +13,14 @@ function choose<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-let scl = 3;
+let scale = 3;
 let noiseScale = 300;
 let space = [10, 15];
 let thickness = [1, 1.4];
 
 export const setup = (p5: p5Types, options: SetupOptions) => {
   p5.createCanvas(options.width, options.height);
-  // pastel pink background
   p5.background('#EBE4D8');
-
   p5.angleMode(p5.DEGREES);
   p5.strokeCap(p5.PROJECT);
   p5.noFill();
@@ -33,18 +31,19 @@ export const setup = (p5: p5Types, options: SetupOptions) => {
   for (
     let y = -height;
     y < height * 2;
-    y += p5.random(space[0] * scl, space[1] * scl)
+    y += p5.random(space[0] * scale, space[1] * scale)
   ) {
     for (
       let x = -width;
       x < width * 2;
-      x += p5.random(space[0] * scl, space[1] * scl)
+      x += p5.random(space[0] * scale, space[1] * scale)
     ) {
       let v = p5.createVector(x, y);
       let lastV = v.copy();
-      // const segments = p5.random(maxSegments);
       const segments = 4;
-      const sw = p5.round(p5.random(thickness[0] * scl, thickness[1] * scl));
+      const sw = p5.round(
+        p5.random(thickness[0] * scale, thickness[1] * scale)
+      );
       p5.strokeWeight(sw);
       for (let seg = 0; seg < segments; seg++) {
         p5.stroke(choose(colors));
@@ -52,8 +51,9 @@ export const setup = (p5: p5Types, options: SetupOptions) => {
         p5.curveVertex(v.x, v.y);
         for (let i = 0; i < p5.random(2, 5); i++) {
           const d =
-            360 * p5.noise(v.x / (noiseScale * scl), v.y / (noiseScale * scl));
-          const dir = Vector.fromAngle(d).setMag(3 * scl);
+            360 *
+            p5.noise(v.x / (noiseScale * scale), v.y / (noiseScale * scale));
+          const dir = Vector.fromAngle(d).setMag(3 * scale);
           lastV = v.copy();
           v.x += dir.x;
           v.y += dir.y;

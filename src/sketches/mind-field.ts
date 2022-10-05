@@ -3,15 +3,14 @@ import { SetupOptions } from '../App';
 
 export const setup = (p5: p5Types, options: SetupOptions) => {
   p5.createCanvas(options.width, options.height);
-  // pastel pink background
   p5.background('#333');
-  // draws many curves between random points without overlapping
   p5.noLoop();
   p5.strokeWeight(1);
-  p5.stroke(247, 200, 217, 30);
+  // Line color
+  p5.stroke(247, 200, 217, 20);
   p5.noFill();
   const points = [];
-  for (let i = 0; i < 80; i++) {
+  for (let i = 0; i < 60; i++) {
     points.push([p5.random(options.width), p5.random(options.height)]);
   }
   for (let i = 0; i < points.length; i++) {
