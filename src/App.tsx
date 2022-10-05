@@ -108,7 +108,11 @@ const App = ({ sketches }: { sketches: any[] }) => {
           })}
           <Route
             path="*"
-            element={<h1 style={{ padding: 30 }}>Select an artwork</h1>}
+            element={
+              <h1 style={{ padding: 30, minHeight: '100vh' }}>
+                Select an artwork
+              </h1>
+            }
           />
         </Routes>
       </div>
